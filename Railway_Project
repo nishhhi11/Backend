@@ -1,0 +1,152 @@
+const bookings = [
+  {
+    pnr: 129501,
+    passengerName: "Rahul",
+    age: 25,
+    gender: "M",
+    coachClass: "3A",
+    fare: 1500,
+    status: "CONFIRMED",
+    seatNo: "B1-25",
+    boardingStation: "Mumbai",
+    destinationStation: "Delhi"
+  },
+  {
+    pnr: 129502,
+    passengerName: "Priya",
+    age: 62,
+    gender: "F",
+    coachClass: "2A",
+    fare: 2500,
+    status: "CONFIRMED",
+    seatNo: "A1-12",
+    boardingStation: "Surat",
+    destinationStation: "Delhi"
+  },
+  {
+    pnr: 129503,
+    passengerName: "Aman",
+    age: 19,
+    gender: "M",
+    coachClass: "3A",
+    fare: 1500,
+    status: "RAC",
+    seatNo: "B2-10",
+    boardingStation: "Vadodara",
+    destinationStation: "Delhi"
+  },
+  {
+    pnr: 129504,
+    passengerName: "Sneha",
+    age: 8,
+    gender: "F",
+    coachClass: "SL",
+    fare: 800,
+    status: "CONFIRMED",
+    seatNo: "S1-20",
+    boardingStation: "Mumbai",
+    destinationStation: "Delhi"
+  },
+  {
+    pnr: 129505,
+    passengerName: "Vikas",
+    age: 35,
+    gender: "M",
+    coachClass: "SL",
+    fare: 800,
+    status: "WAITLISTED",
+    seatNo: null,
+    boardingStation: "Surat",
+    destinationStation: "Delhi"
+  },
+  {
+    pnr: 129506,
+    passengerName: "Meena",
+    age: 45,
+    gender: "F",
+    coachClass: "2A",
+    fare: 2500,
+    status: "WAITLISTED",
+    seatNo: null,
+    boardingStation: "Mumbai",
+    destinationStation: "Delhi"
+  }
+];
+
+const getOccupancySummary = (bookings) => {
+  const confirmed = bookings.filter(b => b.status === "CONFIRMED").length;
+  const waitlisted = bookings.filter(b => b.status === "WAITLISTED").length;
+  const rac = bookings.filter(b => b.status === "RAC").length;
+  const total = bookings.length;
+  const occupancyRate = (confirmed / total) * 100;
+
+  return {
+    confirmed,
+    waitlisted,
+    rac,
+    totalPassengers: total,
+    occupancyRate: occupancyRate.toFixed(2) + "%"
+  };
+};
+
+const getRevenueBreakdown = (bookings) => {
+  const totalRevenue = bookings.reduce((sum, b) => sum + b.fare, 0);
+
+  const coachClass = bookings.reduce((result, b) => {
+    result[b.coachClass] = (result[b.coachClass] || 0) + b.fare;
+    return result;
+  }, {});
+
+  const bookingStatus = bookings.reduce((result, b) => {
+    result[b.status] = (result[b.status] || 0) + b.fare;
+    return result;
+  }, {});
+
+  return {
+    totalRevenue,
+    coachClass,
+    bookingStatus
+  };
+};
+
+const getStationLoad = (bookings) => {
+  return bookings.reduce((result, b) => {
+    result[b.boardingStation] =
+      (result[b.boardingStation] || 0) + 1;
+    return result;
+  }, {});
+};
+
+const getVulnerablePassengers = (bookings) => {
+  return bookings
+    .filter(b => b.status === "CONFIRMED" && (b.age < 12 || b.age >= 60))
+    .map(b => ({
+      name: b.passengerName,
+      age: b.age,
+      coach: b.coachClass,
+      seat: b.seatNo
+    }));
+};
+
+const getWaitlistClearancePlan = (bookings) => {
+  return bookings
+    .filter(b => b.status === "WAITLISTED")
+    .sort((a, b) => a.pnr - b.pnr)
+    .map((b, index) => ({
+      pnr: b.pnr,
+      passengerName: b.passengerName,
+      clearanceRank: index + 1
+    }));
+};
+
+const generateFullDashboard = (bookings) => {
+  return {
+    occupancySummary: getOccupancySummary(bookings),
+    revenueBreakdown: getRevenueBreakdown(bookings),
+    stationLoad: getStationLoad(bookings),
+    vulnerablePassengers: getVulnerablePassengers(bookings),
+    waitlistClearancePlan: getWaitlistClearancePlan(bookings)
+  };
+};
+
+console.log(generateFullDashboard(bookings));
