@@ -1,0 +1,23 @@
+<!-- create multiple listeners where on one click it primts clicked once and on two clicks it prints clicked twice  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event listener</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        myButton.addEventListener("click", (event) => {
+            console.log("Clicked once");
+        });
+
+        myButton.addEventListener("dblclick", (event) => {
+            console.log("Clicked twice");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events</title>
+</head>
+
+<body>
+    <div id="bookingCard">
+        <div id="passengerInfo">
+            <button id="btn">Click Me</button>
+        </div>
+    </div>
+
+    <script>
+        const bookingCard = document.getElementById("bookingCard");
+        const passengerInfo = document.getElementById("passengerInfo");
+        const btn = document.getElementById("btn");
+        const bookbtn = document.getElementById("btn");
+
+        bookingCard.addEventListener("click", (eventobject) => {
+
+            console.log("1. grandparents (bookingCard) clicked");
+        });
+
+        passengerInfo.addEventListener("click", (eventobject) => {
+            console.log("2. parent (passengerInfo) clicked");
+        });
+
+        btn.addEventListener("click", (eventobject) => {
+            console.log("3. child (btn) clicked");
+        });
+        // bookbtn.addEventListener("click",(eventobject)=>{
+        //     console.log(eventobject);
+        //     alert("Button Clicked")
+        // },false);
+        // function sayHello(){
+        //     alert ("hello");
+        // }
+        // bookbtn.addEventListener("click",sayHello,false);
+
+        // bookbtn.removeEventListener("click", sayHello, false);
+    </script>
+</body>
+
+</html>
