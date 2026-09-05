@@ -1,0 +1,10 @@
+develop a simple plant inventary managemnet system using node.js core modules hhtp , fs, url and eact js json file storage (plants.json)
+
+no express framework
+
+features:
+view all plants (get/plant)
+add new plant (post/ plants)
+update a plant(put/plants/:ID)
+delete a plant (delete/plant/:ID)
+
