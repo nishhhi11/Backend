@@ -1,0 +1,1 @@
+user == "nishi" ? isLogin = true : isLogin = false
