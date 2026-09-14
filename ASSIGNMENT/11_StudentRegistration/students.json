@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "name": "Nishi",
+    "age": 19,
+    "email": "nishi@gmail.com",
+    "registeredAt": "2026-09-14T07:06:55.171Z"
+  },
+  {
+    "name": "Ram",
+    "age": 29,
+    "email": "ram@gmail.com",
+    "registeredAt": "2026-09-14T07:07:07.634Z"
+  }
+]

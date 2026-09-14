@@ -1,9 +1,9 @@
 const fs = require("fs");
 
 function saveStudent(student) {
-    const fileName = "students.json";
+    const fileName = __dirname + "/students.json";
 
-    fs.readFile(fileName, "utf8", (err, data) => {
+    fs.readFile(fileName, (err, data) => {
 
         let students = [];
 

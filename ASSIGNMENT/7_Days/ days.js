@@ -1,7 +1,5 @@
-// Create a Date object
 let date = new Date();
 
-// Get the day number
 let day = date.getDay();
 
 switch (day) {

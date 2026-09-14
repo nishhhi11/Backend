@@ -1,28 +1,42 @@
-// Function to simulate ATM withdrawal
-function atmWithdrawal(balance, withdrawAmount) {
+// function atmWithdrawal(balance, withdrawAmount) {
 
-    /*
-    Keep processing the withdrawal
-    until the balance is insufficient.
-    */
+//     while (true) {
+//         if (withdrawAmount > balance) {
+//             console.log("Insufficient balance");
+//             break;
+//         }
 
-    while (true) {
-        if (withdrawAmount > balance) {
-            console.log("Insufficient balance");
-            break;
-        }
+//         balance = balance - withdrawAmount;
+//         console.log("Withdrawal successful");
+//         console.log("Remaining Balance: " + balance);
 
-        balance = balance - withdrawAmount;
-        console.log("Withdrawal successful");
-        console.log("Remaining Balance: " + balance);
+//         withdrawAmount = 200;
 
-        withdrawAmount = 200;
+//         if (withdrawAmount > balance) {
+//             console.log("Insufficient balance");
+//             break;
+//         }
+//     }
+// }
 
-        if (withdrawAmount > balance) {
-            console.log("Insufficient balance");
-            break;
-        }
-    }
-}
+// atmWithdrawal(1000, 300);
 
-atmWithdrawal(1000, 300);
+// function atmWithdrawal(balance) {
+
+//     while (true) {
+
+//         let withdrawAmount = Number(prompt("Enter withdrawal amount: "));
+
+//         if (withdrawAmount > balance) {
+//             console.log("Insufficient balance");
+//             break;
+//         }
+
+//         balance = balance - withdrawAmount;
+
+//         console.log("Withdrawal successful");
+//         console.log("Remaining Balance: " + balance);
+//     }
+// }
+
+// atmWithdrawal(1000);

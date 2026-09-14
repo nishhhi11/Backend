@@ -5,5 +5,12 @@
     "vehicleNumber": "MH14XY5679",
     "vehicleType": "Scooter",
     "registrationDate": "2026-09-07"
+  },
+  {
+    "studentName": "Ram",
+    "collegeId": "C109",
+    "vehicleNumber": "MH14XY5689",
+    "vehicleType": "Bike",
+    "registrationDate": "2026-09-17"
   }
 ]

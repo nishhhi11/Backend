@@ -1,11 +1,5 @@
-// Function to find the first even number
 function findFirstEven(arr) {
     let i = 0;
-
-    /*
-    Check each element using do-while.
-    Continue when the number is odd.
-    */
 
     do {
         if (arr[i] % 2 !== 0) {

@@ -1,5 +1,6 @@
 const http = require('http');
-const validateUser = require('./validator');
+const validateUser = require('./validate');
+PORT = 3000;
 
 const server = http.createServer((req, res) => {
 
@@ -26,6 +27,6 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(3000, () => {
-    console.log("Server is running on this port");
+server.listen(PORT, () => {
+    console.log(`Server is running on ${PORT}`);
 });

@@ -1,6 +1,5 @@
 const bookings = require("./bookings");
 
-// 1. Occupancy Summary
 const getOccupancySummary = (bookings) => {
     const confirmed = bookings.filter(
         (booking) => booking.status === "Confirmed"
@@ -28,7 +27,6 @@ const getOccupancySummary = (bookings) => {
 };
 
 
-// 2. Revenue Breakdown
 const getRevenueBreakdown = (bookings) => {
     const totalRevenue = bookings.reduce(
         (total, booking) => total + booking.fare,
@@ -63,7 +61,6 @@ const getRevenueBreakdown = (bookings) => {
 };
 
 
-// 3. Station Load
 const getStationLoad = (bookings) => {
     return bookings.reduce((result, booking) => {
         const station = booking.boardingStation;
@@ -96,7 +93,6 @@ const getVulnerablePassengers = (bookings) => {
 };
 
 
-// 5. Waitlist Clearance Plan
 const getWaitlistClearancePlan = (bookings) => {
     return bookings
         .filter((booking) => booking.status === "WL")
@@ -109,7 +105,6 @@ const getWaitlistClearancePlan = (bookings) => {
 };
 
 
-// 6. Generate Full Dashboard
 const generateFullDashboard = (bookings) => {
     return {
         occupancySummary: getOccupancySummary(bookings),
@@ -120,8 +115,6 @@ const generateFullDashboard = (bookings) => {
     };
 };
 
-
-// Final Dashboard
 const dashboard = generateFullDashboard(bookings);
 
 console.log(dashboard);

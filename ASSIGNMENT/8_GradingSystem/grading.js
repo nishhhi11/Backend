@@ -1,10 +1,4 @@
-// Function to calculate the grade based on score
 function getGrade(score) {
-
-    /*
-    Check the score range
-    and return the corresponding grade.
-    */
 
     if (score >= 90) {
         return "A";

@@ -1,20 +1,16 @@
-// Create a library object
 const library = {
     books: [],
 
-    // Method to add a new book
     addBook(title, author, ISBN) {
         const book = {
             title: title,
             author: author,
             ISBN: ISBN,
-            isAvailable: true
         };
 
         this.books.push(book);
     },
 
-    // Method to borrow a book
     borrowBook(ISBN) {
         for (let book of this.books) {
             if (book.ISBN === ISBN) {
@@ -23,7 +19,6 @@ const library = {
         }
     },
 
-    // Method to return a book
     returnBook(ISBN) {
         for (let book of this.books) {
             if (book.ISBN === ISBN) {
@@ -32,7 +27,6 @@ const library = {
         }
     },
 
-    // Method to display books
     displayBooks() {
         for (let book of this.books) {
             console.log(

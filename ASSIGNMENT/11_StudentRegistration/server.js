@@ -17,7 +17,9 @@ const server = http.createServer((req, res) => {
 
             student.registeredAt = new Date().toISOString();
 
-            fs.readFile("students.json", "utf8", (err, data) => {
+            const fileName = __dirname + "/students.json";
+
+            fs.readFile(fileName, "utf8", (err, data) => {
 
                 let students = [];
 
@@ -28,7 +30,7 @@ const server = http.createServer((req, res) => {
                 students.push(student);
 
                 fs.writeFile(
-                    "students.json",
+                    fileName,
                     JSON.stringify(students, null, 2),
                     (err) => {
                         if (err) {

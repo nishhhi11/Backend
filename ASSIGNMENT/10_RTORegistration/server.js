@@ -1,23 +1,18 @@
 const fs = require("fs");
 
 const vehicle = {
-    studentName: "Nishi",
-    collegeId: "C104",
-    vehicleNumber: "MH14XY5679",
-    vehicleType: "Scooter",
-    registrationDate: "2026-09-07"
+    studentName: "Ram",
+    collegeId: "C109",
+    vehicleNumber: "MH14XY5689",
+    vehicleType: "Bike",
+    registrationDate: "2026-09-17"
 };
 
-const fileName = "rto_data.json";
+const fileName = __dirname + "/rto_data.json";
 
-fs.readFile(fileName, "utf8", (err, data) => {
+fs.readFile(fileName, (err, data) => {
 
     let vehicles = [];
-
-    /*
-    If the file exists, read the existing data.
-    Otherwise, start with an empty array.
-    */
 
     if (!err) {
         vehicles = JSON.parse(data);
@@ -31,7 +26,8 @@ fs.readFile(fileName, "utf8", (err, data) => {
         (err) => {
             if (err) {
                 console.log("Error saving data");
-            } else {
+            }
+            else {
                 console.log("Vehicle data saved successfully");
             }
         }
